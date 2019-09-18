@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenuGame.unity
+    guid: 92e64de8a76116948aa8ff4f5fbe73eb
+  - enabled: 1
+    path: Assets/Scenes/StageSchool_Classroom.unity
+    guid: bacdf3d68c6265e43aa93a9aabeb3b07
+  m_configObjects: {}
