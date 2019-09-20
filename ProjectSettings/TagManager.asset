@@ -22,6 +22,10 @@ TagManager:
   - TrashDataCheckFront
   - Trash
   - Controller
+  - Bin
+  - BinDataCheckRight
+  - BinDataCheckLeft
+  - BinDataCheckFront
   layers:
   - Default
   - TransparentFX

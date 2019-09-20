@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class BookSpawn : MonoBehaviour {
 
-    public GamePlayController gamePlayControl;
+    public GamePlayController gamePlayControl; // Reference for total number of correct books. 
 
-    public GameObject bookTemplate;
-    public Sprite[] shapesOfBook;
-    public string[] colorsOfBook; 
-    public List<GameObject> books;
-    private int _numbIdBook;
-    public bool loadFirstInstruction = false;
+    [Header("Book Attribute")]
+    public GameObject bookTemplate; // Book template which will be spawned.
+    public Sprite[] shapesOfBook;   // List of shape sprites to implement when a book is spawned.
+    public string[] colorsOfBook;   // List of color name to implement when a book is spawned.
+    public List<GameObject> books;  // List for spawned book. 
+    public bool loadFirstInstruction = false; // Define if first instruction finished playing.
 
+    [Header("Maximum Book")]
+    public int maxBookRespawn; // Define maximum book allowed every spawn. 
+
+    /// <summary>
+    /// Start method sets up 4 initial books.
+    /// </summary>
     void Start() {
         books = new List<GameObject>();
 
-        while (books.Count < 4 && loadFirstInstruction == true) {
+        while (books.Count < maxBookRespawn && loadFirstInstruction == true) {
             RandomizeContentBook();
         }
     }
 
+    /// <summary>
+    /// The method will spawn books after the first instruction is finished playing and when the game has 0 to less than 4 books. 
+    /// If the total number of correct books on both bins are equal or greater than 5, disable the grab of all books. 
+    /// </summary>
     void Update() { 
-        if ((books.Count >= 0 && books.Count < 4) && loadFirstInstruction == true){
-            if (gamePlayControl.totalCorrectlyRight >= 5 && gamePlayControl.totalCorrectlyLeft >= 5) {
+        if ((books.Count >= 0 && books.Count < maxBookRespawn) && loadFirstInstruction == true){
+            if (gamePlayControl.totalCorrectlyRight >= gamePlayControl.maxCorrectRight && gamePlayControl.totalCorrectlyLeft >= gamePlayControl.maxCorrectLeft) {
                 gamePlayControl.DisableGrabbableObject();
             }
             else {
@@ -32,6 +42,10 @@ public class BookSpawn : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Method to spawn a book with randomized color and shape based on bookTemplate.
+    /// Spawned books are randomly positioned based on the parent and added to the spawned books list. 
+    /// </summary>
     protected void RandomizeContentBook() {
         int colorNumb = Random.Range(0, colorsOfBook.Length);
         int shapeNumb = Random.Range(0, shapesOfBook.Length);
@@ -43,8 +57,6 @@ public class BookSpawn : MonoBehaviour {
         books.Add(tempBook);
 
         BookElement element = tempBook.GetComponent<BookElement>();
-
-        element.idBook = _numbIdBook;
 
         Color r = Color.black;
         if (colorNumb == 0) {

@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\AmbientController.cs" />
+    <Compile Include="Assets\Script\BinDataControl.cs" />
+    <Compile Include="Assets\Script\BinFrontControl.cs" />
     <Compile Include="Assets\Script\BookElement.cs" />
     <Compile Include="Assets\Script\BookSpawn.cs" />
     <Compile Include="Assets\Script\CameraLoadController.cs" />
@@ -70,8 +72,6 @@
     <Compile Include="Assets\Script\GamePlayController.cs" />
     <Compile Include="Assets\Script\Instruction.cs" />
     <Compile Include="Assets\Script\PlayerViewController.cs" />
-    <Compile Include="Assets\Script\TrashDataControl.cs" />
-    <Compile Include="Assets\Script\TrashFrontControl.cs" />
     <Compile Include="Assets\Script\UIController.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
