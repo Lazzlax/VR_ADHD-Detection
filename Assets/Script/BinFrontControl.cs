@@ -41,6 +41,7 @@ public class BinFrontControl : MonoBehaviour {
                 col.gameObject.GetComponent<VRTK.VRTK_InteractableObject>().isGrabbable = false;
                 col.gameObject.GetComponent<VRTK.VRTK_InteractableObject>().enabled = false;
                 spawnControl.books.Remove(col.gameObject);
+                Destroy(col.gameObject, 5);
             }
         }
     }
